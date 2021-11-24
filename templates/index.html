@@ -11,7 +11,7 @@
           <h3 class="mb-4 pb-2 fw-normal">Check the weather forecast</h3>
   
           <div class="input-group rounded mb-3">
-            <input type="search" class="form-control rounded" placeholder="City" aria-label="Search"
+            <input name="city" id="city" type="search" class="form-control rounded" placeholder="City" aria-label="Search"
               aria-describedby="search-addon" />
             <a href="#!" type="button" class="btn btn-primary">
               <span id="search-addon">
@@ -48,7 +48,7 @@
           <div class="card shadow-0 border">
             <div class="card-body p-4">
   
-              <h4 class="mb-1 sfw-normal">New York, US</h4>
+              <h4 class="mb-1 sfw-normal">{{ weather_data.name }}</h4>
               <p class="mb-2">Current temperature: <strong>5.42°C</strong></p>
               <p>Feels like: <strong>4.37°C</strong></p>
               <p>Max: <strong>6.11°C</strong>, Min: <strong>3.89°C</strong></p>
