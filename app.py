@@ -5,8 +5,11 @@ import requests
 
 app = Flask(__name__)
 
-def get_weather_data_by_city(city, temp_unit):
-    url = "https://api.openweathermap.org/data/2.5/weather?q={}&units={}&appid=102bac7e0c03b99c4025a5fd59aca168".format(city, temp_unit)
+# Add your openweathermap.org api key here (Current Weather Data)
+api_key = ""
+
+def get_weather_data_by_city(city, temp_unit, api_key):
+    url = "https://api.openweathermap.org/data/2.5/weather?q={}&units={}&appid={}".format(city, temp_unit, api_key)
     r = requests.get(url)
 
     return r.json()
@@ -18,7 +21,7 @@ def index():
     if request.method == "POST":
         city = request.form['city']
         temp_unit = request.form['temp-unit']
-        weather_data = get_weather_data_by_city(city, temp_unit)
+        weather_data = get_weather_data_by_city(city, temp_unit, api_key)
     return render_template("index.html", weather_data=weather_data, temp_unit=temp_unit)
 
 if __name__ == '__main__':
