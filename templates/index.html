@@ -26,9 +26,9 @@
 				  <input
 					class="form-check-input"
 					type="radio"
-					name="inlineRadioOptions"
-					id="inlineRadio1"
-					value="option1"
+					name="temp-unit"
+					id="celsius"
+					value="metric"
 					checked
 				  />
 				  <label class="form-check-label" for="inlineRadio1">Celsius</label>
@@ -38,9 +38,9 @@
 				  <input
 					class="form-check-input"
 					type="radio"
-					name="inlineRadioOptions"
-					id="inlineRadio2"
-					value="option2"
+					name="temp-unit"
+					id="farenheit"
+					value="imperial"
 				  />
 				  <label class="form-check-label" for="inlineRadio2">Farenheit</label>
 				</div>
@@ -52,9 +52,9 @@
               <div class="card-body p-4">
     
                   <h4 class="mb-1 sfw-normal">{{ weather_data.name }}</h4>
-                  <p class="mb-2">Current temperature: <strong>{{ weather_data.main.temp | round | int }}°F</strong></p>
-                  <p>Feels like: <strong>{{ weather_data.main.feels_like | round | int }}°F</strong></p>
-                  <p>Max: <strong>{{ weather_data.main.temp_max | round | int }}°F</strong>, Min: <strong>{{ weather_data.main.temp_min | round | int }}°F</strong></p>
+                  <p class="mb-2">Current temperature: <strong>{{ weather_data.main.temp | round | int }}{% if temp_unit == 'metric' %}°C{% else %}°F{% endif %}</strong></p>
+                  <p>Feels like: <strong>{{ weather_data.main.feels_like | round | int }}{% if temp_unit == 'metric' %}°C{% else %}°F{% endif %}</strong></p>
+                  <p>Max: <strong>{{ weather_data.main.temp_max | round | int }}{% if temp_unit == 'metric' %}°C{% else %}°F{% endif %}</strong>, Min: <strong>{{ weather_data.main.temp_min | round | int }}{% if temp_unit == 'metric' %}°C{% else %}°F{% endif %}</strong></p>
       
                   <div class="d-flex flex-row align-items-center">
                     <p class="mb-0 me-4">{{ weather_data.weather[0].description }}</p>
